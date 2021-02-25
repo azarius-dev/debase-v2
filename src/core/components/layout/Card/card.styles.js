@@ -38,8 +38,8 @@ export const StyledActiveBorderSVG = styled.svg`
 
 export const StyledActiveBorderSVGRect = styled.rect`
     fill: transparent;
-    stroke: ${props => props.theme.colors[props.color]};
-    stroke-width: 3px;
+    stroke: ${props => props.theme.colors[props.color + 'Light']};
+    stroke-width: 4px;
     stroke-linecap: round;
     rx: 10px;
 `;

@@ -3,11 +3,8 @@ import { useState, useRef, useEffect } from 'react';
 import { Spinner } from '@core/components';
 import {
     StyledCard,
-    StyledBackground,
-    StyledBorder,
     StyledActiveBorderSVG,
     StyledActiveBorderSVGRect,
-    StyledContent,
     StyledLoader
 } from './card.styles';
 const Card = ({
@@ -17,7 +14,7 @@ const Card = ({
     minHeight,
     isActive = false,
     isLoading = false,
-    activeParts
+    activeParts = 8
 }) => {
 
     const [ cardSize, setCardSize ] = useState(null);
@@ -31,8 +28,8 @@ const Card = ({
         return (
             <StyledActiveBorderSVG color={color}>
                 <StyledActiveBorderSVGRect
-                    x="2"
-                    y="2"
+                    x="0"
+                    y="0"
                     width={width - 2}
                     height={height - 2}
                     color={color}
@@ -94,13 +91,6 @@ const Card = ({
         </StyledCard>
     );
 
-};
-
-Card.defaultProps = {
-    status: 'idle',
-    gutter: 1,
-    minHeight: 0,
-    activeParts: 8
 };
 
 export default Card;

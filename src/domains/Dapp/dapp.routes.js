@@ -23,18 +23,6 @@ const DAPP_ROUTES = [
         path: '/pools',
         icon: <AccountTreeIcon />,
         component: <Pools />,
-        subroutes: [
-            {
-                label: 'debug1',
-                path: '/pools/debug1',
-                component: <div>debu1g</div>
-            },
-            {
-                label: 'debug2',
-                path: '/pools/debug2',
-                component: <div>debu2g</div>
-            }
-        ]
     },
     {
         label: 'rebase',

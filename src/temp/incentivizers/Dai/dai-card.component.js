@@ -1,12 +1,12 @@
-import { useContext } from '@domains/Dapp/views/Pools/views/incentivizers/Dai/@domains/Dapp/views/Pools/Pools/incentivizers/Dai/react';
+import { useContext } from 'react';
 
-import useSWR from '@domains/Dapp/views/Pools/views/incentivizers/Dai/@domains/Dapp/views/Pools/Pools/incentivizers/Dai/swr';
-import { formatEther } from '@domains/Dapp/views/Pools/views/incentivizers/Dai/@domains/Dapp/views/Pools/Pools/incentivizers/Dai/ethers/lib/utils';
-import { useWeb3React } from '@domains/Dapp/views/Pools/views/incentivizers/Dai/@domains/Dapp/views/Pools/Pools/incentivizers/Dai/@web3-react/core';
-import { contractAddress, poolAbi, fetcher } from '@domains/Dapp/views/Pools/views/incentivizers/Dai/@domains/Dapp/views/Pools/Pools/incentivizers/Dai/utils';
+import useSWR from 'swr';
+import { formatEther } from 'ethers/lib/utils';
+import { useWeb3React } from '@web3-react/core';
+import { contractAddress, poolAbi, fetcher } from '@utils';
 
 /* import components */
-import { PoolCard } from '@domains/Dapp/views/Pools/views/incentivizers/Dai/@domains/Dapp/views/Pools/Pools/incentivizers/Dai/domains/Dapp/views/DashboardView/components/layout';
+import { PoolCard } from '@dapp/components';
 import DaiStake from './dai-stake.component';
 
 const DaiCard = () => {

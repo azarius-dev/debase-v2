@@ -1,5 +1,5 @@
-import { useEffect, useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import { UIContext } from '@dapp/contexts';
 import {
@@ -20,24 +20,22 @@ const Navigation = ({ routes }) => {
             const { label, path, icon } = route;
             const isActive = path === ui.activeRoute.path;
             return (
-                <Link
+                <StyledButton
+                    as={Link}
                     key={label} 
                     to={path}
-                    style={{ textDecoration: 'none' }}
                     onClick={() => uiMethods.detectActiveRoute(path)}
                 >
-                    <StyledButton>
-                        <StyledButtonIcon>
-                            {icon}
-                        </StyledButtonIcon>
-                        <StyledButtonText>
-                            {label}
-                        </StyledButtonText>
-                        {isActive && (
-                            <StyledButtonBorder />
-                        )}
-                    </StyledButton>
-                </Link>
+                    <StyledButtonIcon>
+                        {icon}
+                    </StyledButtonIcon>
+                    <StyledButtonText>
+                        {label}
+                    </StyledButtonText>
+                    {isActive && (
+                        <StyledButtonBorder />
+                    )}
+                </StyledButton>
             );
         });
     };

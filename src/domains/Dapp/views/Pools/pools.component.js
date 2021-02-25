@@ -1,56 +1,79 @@
 import React, { Fragment } from 'react';
+import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { useWeb3React } from '@web3-react/core';
 
-import { Section, DisconnectedWalletCard, Grid } from '@dapp/components';
-/*import { DegovDailpCard, DaiCard, DebaseDailpCard, DegovEthCard, DM88Card } from './Pools/incentivizers';
-import { ThresholdCounterCard, ThresholdCounterV2Card } from './Pools/stabilizers';*/
+import { TextSmall } from '@core/components';
+import { Section, DisconnectedWalletCard, Grid, PoolCard } from '@dapp/components';
 import { StyledPools } from './pools.styles';
+import POOLS_ROUTES from './pools.routes';
 
 const Pools = ()  => {
 
+    const { path } = useRouteMatch();
     const { active } = useWeb3React();
 
-    /*const renderIncentivizerPools = () => {
-        if (!active) return <DisconnectedWalletCard />;
+    const renderPools = () => {
+        if (!active) return <DisconnectedWalletCard />
         return (
-            <React.Fragment>
-                <StyledPoolsGrid
-                    minWidthCol="340px"
+            <Grid>
+                <PoolCard
+                    label="pool example"
+                    info="tooltip info"
+                    routePath="/pools/pool1"
+                    isActive
                 >
-                    <DegovDailpCard />
-                    <DaiCard />
-                    <DebaseDailpCard />
-                </StyledPoolsGrid>
-                <StyledPoolsGrid
-                    minWidthCol="680px"
+                    <TextSmall>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </TextSmall>
+                </PoolCard>
+                <PoolCard
+                    label="pool example"
+                    info="tooltip info"
+                    routePath="/pools/pool2"
+                    isActive
                 >
-                    <DegovEthCard />
-                    <DM88Card />
-                </StyledPoolsGrid>
-            </React.Fragment>
+                    <TextSmall>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </TextSmall>
+                </PoolCard>
+                <PoolCard
+                    label="pool example"
+                    info="tooltip info"
+                    routePath="/pools/pool3"
+                    isActive
+                >
+                    <TextSmall>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </TextSmall>
+                </PoolCard>
+            </Grid>
         );
     };
-    const renderStabilizerPools = () => {
-        if (!active) {return <DisconnectedWalletCard />}
-        return (
-            <StyledPoolsGrid
-                minWidthCol="680px"
-            >
-                <ThresholdCounterCard />
-                <ThresholdCounterV2Card />
-            </StyledPoolsGrid>
-        )
-    };*/
 
     return (
-        <Fragment>
-            <Section label="Incentivizers">
-                <DisconnectedWalletCard />
-            </Section>
-            <Section label="Stabilizers">
-                <DisconnectedWalletCard />
-            </Section>
-        </Fragment>
+        <Switch>
+            <Route exact path={path}>
+                <Section label="Incentivizers">
+                    {renderPools()}
+                </Section>
+                <Section label="Stabilizers">
+                    <DisconnectedWalletCard />
+                </Section>
+            </Route>
+
+            {POOLS_ROUTES.map((route, i) => {
+                const { label, path, component } = route;
+                return (
+                    <Route
+                        key={label}
+                        path={path}
+                    >
+                        {component}
+                    </Route>
+                );
+            })}
+
+        </Switch>
     );
 
 };

@@ -1,17 +1,17 @@
-import { useContext } from '@domains/Dapp/views/Pools/views/incentivizers/DegovDailp/@domains/Dapp/views/Pools/Pools/incentivizers/DegovDailp/react';
+import { useContext } from 'react';
 
-import useSWR from '@domains/Dapp/views/Pools/views/incentivizers/DegovDailp/@domains/Dapp/views/Pools/Pools/incentivizers/DegovDailp/swr';
-import { formatEther } from '@domains/Dapp/views/Pools/views/incentivizers/DegovDailp/@domains/Dapp/views/Pools/Pools/incentivizers/DegovDailp/ethers/lib/utils';
-import { useWeb3React } from '@domains/Dapp/views/Pools/views/incentivizers/DegovDailp/@domains/Dapp/views/Pools/Pools/incentivizers/DegovDailp/@web3-react/core';
-import { contractAddress, poolAbi, fetcher } from '@domains/Dapp/views/Pools/views/incentivizers/DegovDailp/@domains/Dapp/views/Pools/Pools/incentivizers/DegovDailp/utils';
+import useSWR from 'swr';
+import { formatEther } from 'ethers/lib/utils';
+import { useWeb3React } from '@web3-react/core';
+import { contractAddress, poolAbi, fetcher } from '@utils';
 
 /* import components */
-import { PoolCard } from '@domains/Dapp/views/Pools/views/incentivizers/DegovDailp/@domains/Dapp/views/Pools/Pools/incentivizers/DegovDailp/domains/Dapp/views/DashboardView/components/layout';
-import DegovDailpStake from './degovdailp-stake.component';
+import { PoolCard } from '@dapp/components';
+import DebaseDailpStake from './debasedailp-stake.component';
 
-const DegovDailpCard = () => {
+const DebaseDailpCard = () => {
     
-    const contract = contractAddress.degovDaiLpPool;
+    const contract = contractAddress.debaseDaiLpPool;
     const { library } = useWeb3React();
 
     /* static data */
@@ -40,7 +40,7 @@ const DegovDailpCard = () => {
     const linkData = [
         {
             icon: 'contract',
-            url: 'https://etherscan.io/address/0xaB68de2a9d9A733F3c4CFE52Af7Fc4f6aa015637'
+            url: 'https://etherscan.io/address/0xF4168cc431e9a8310e595dB9F7E2564cC96F5D51'
         },
         {
             icon: 'link',
@@ -50,47 +50,47 @@ const DegovDailpCard = () => {
     const listData = [
         {
             label: 'Total reward',
-            value: '25,000',
-            valueType: 'degov'
+            value: '20,000',
+            valueType: 'debase'
         },
         {
             label: 'Halving period',
-            value: '1 week'
+            value: '1 day'
         },
         {
             label: 'Halving reward',
             value: getHalvingReward(),
-            valueType: 'degov'
+            valueType: 'debase'
         },
         {
             label: 'Total claimed',
             value: getTotalClaimed(),
-            valueType: 'degov'
+            valueType: 'debase'
         },
         {
             label: 'TVL',
-            value: '$894,241'
+            value: '$0'
         }
     ];
     const highlightData = [
         {
             label: 'APR',
-            value: '80%'
+            value: '0%'
         }
     ];
 
     return (
         <PoolCard 
-            title="Pool 1"
-            subtitle="Degov / Dai-lp"
+            title="Pool 3"
+            subtitle="Debase / Dai-lp"
             tooltip={poolTooltip}
-            status="active"
+            status="inactive"
             data={listData}
             highlightData={highlightData}
             links={linkData}
-            sidepanelContent={<DegovDailpStake info={poolInfo} />}
+            sidepanelContent={<DebaseDailpStake info={poolInfo} />}
         />
     );
 };
 
-export default DegovDailpCard;
+export default DebaseDailpCard;

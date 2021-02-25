@@ -20,6 +20,7 @@ const DisplayLarge = styled(Display).attrs(props => ({
         background-image: linear-gradient(30deg, ${props => props.theme.colors.text} 30%, ${props => props.theme.colors.text}10 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        white-space: nowrap;
     }
 `;
 

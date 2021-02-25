@@ -14,7 +14,6 @@ const Tooltip = props => {
 
     const [ active, setActive ] = useState(false);
     const [ positionXY, setPositionXY ] = useState({ x: 0, y: 0 });
-    const [ wrapperRect, setWrapperRect ] = useState(null);
 
     const rootNode = document.getElementById('root');
 
@@ -36,7 +35,9 @@ const Tooltip = props => {
     };
 
     const calcPosition = () => {
-        if (!wrapperRect || !tooltipRef || !tooltipRef.current) {return}
+        if (!tooltipRef || !tooltipRef.current) {return}
+        
+        const wrapperRect = wrapperRef.current.getBoundingClientRect();
         const tooltipWidth = tooltipRef.current.offsetWidth;
         const tooltipHeight = tooltipRef.current.offsetHeight;
 
@@ -142,19 +143,9 @@ const Tooltip = props => {
     };
 
     useEffect(() => {
-        const intersectionObserver = new IntersectionObserver(() => {
-            if (!wrapperRef || !wrapperRef.current) {return}
-            setWrapperRect(wrapperRef.current.getBoundingClientRect());
-        });
-        intersectionObserver.observe(wrapperRef.current);
-        return () => {
-            intersectionObserver.disconnect();
-        }
-    }, [wrapperRef]);
-    useEffect(() => {
-        if (!wrapperRect && active) {return}
+        if (!active) {return}
         calcPosition();
-    }, [wrapperRect, active]);
+    }, [active]);
 
     return (
         <StyledTooltipWrapper

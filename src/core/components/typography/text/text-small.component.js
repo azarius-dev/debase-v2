@@ -1,10 +1,10 @@
 import styled from 'styled-components';
+import Text from './text.component';
 
-const TextSmall = styled.div`
-    position: relative;
+const TextSmall = styled(Text)`
     font-size: 16px;
-    font-weight: 400;
-    line-height: 150%;
+    font-weight: 300;
+    line-height: 180%;
 `;
 
 export default TextSmall;

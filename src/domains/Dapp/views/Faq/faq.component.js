@@ -11,7 +11,7 @@ const Faq = () => {
             <Section>
                 <Countdown 
                     endDate="2021-02-25"
-                    onEnd={() => console.log('it ended')}
+                    
                 />
             </Section>
             <Section>

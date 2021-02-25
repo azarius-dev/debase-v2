@@ -330,7 +330,7 @@ class Dapp extends React.Component {
 												<StyledContent>
 													<Switch>
 														{DAPP_ROUTES.map((route, i) => {
-															const { label, path, component, subroutes } = route;
+															const { label, path, component } = route;
 															if (i === 0) return;
 															return (
 																<Route

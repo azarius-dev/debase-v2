@@ -1,12 +1,9 @@
 import styled from 'styled-components';
+import Display from './display.component';
 
-const DisplaySmall = styled.h3.attrs(props => ({
+const DisplaySmall = styled(Display).attrs(props => ({
     content: props.children,
 }))`
-    position: relative;
-    padding: 0;
-    margin: 0;
-    font-family: 'bladerunner', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 100%;

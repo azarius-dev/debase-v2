@@ -87,10 +87,11 @@ export const StyledGraphTooltip = styled.div`
     display: flex;
     flex-direction: column;
     background-color: ${props => props.theme.colors.background};
-    border: 1px solid ${ props => props.theme.colors.secundary };
-    border-radius: 5px;
+    border: 2px solid ${props => props.theme.colors.secundaryLight};
+    box-shadow: ${props => props.theme.shadows.secundary};
+    border-radius: 10px;
     z-index: 10;
-    padding: 10px;
+    padding: 14px 18px;
     gap: 5px;
     transform: translate(-50%, 10px);
     white-space: nowrap;
@@ -108,7 +109,7 @@ export const StyledGraphTooltipItem = styled.div`
 export const StyledGraphTooltipLabel = styled.div`
     margin-right: auto;
     padding-right: 20px;
-    color: ${ props => props.theme.colors.secundary };
+    color: ${props => props.theme.colors.secundaryLight};
 `;
 
 export const StyledGraphTooltipValue = styled.div`

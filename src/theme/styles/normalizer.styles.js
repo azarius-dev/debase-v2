@@ -7,9 +7,6 @@ const NormalizerStyle = createGlobalStyle`
             height: 0;
             overflow: visible;
         }
-        & a {
-            background-color: transparent;
-        }
         & abbr[title] {
             border-bottom: none;
             text-decoration: underline;

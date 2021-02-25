@@ -31,6 +31,18 @@ const DAPP_ROUTES = [
         component: <Rebase />
     },
     {
+        label: 'roadmap',
+        path: '/roadmap',
+        icon: <TuneIcon />,
+        component: <Faq />
+    },
+    {
+        label: 'faq',
+        path: '/faq',
+        icon: <TuneIcon />,
+        component: <Faq />
+    },
+    {
         label: 'dev',
         path: '/dev',
         icon: <TuneIcon />,

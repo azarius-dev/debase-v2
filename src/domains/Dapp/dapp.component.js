@@ -15,6 +15,7 @@ import {
 	getTreasuryBalance
 } from '@api';
 import { parseFloatFixed, parseNumToUsFormat } from '@utils';
+import { ScrollArea } from '@core/components';
 import { Background, Sidebar, Navigation, Topbar } from '@dapp/components';
 import {
 	UIContext,
@@ -42,6 +43,7 @@ class Dapp extends React.Component {
 	state = {
 		ui: {
 			activeRoute: {},
+			activeRouteIndex: 0,
 			isMobile: false,
 			isLoading: {
 				tokenData: true,
@@ -91,9 +93,11 @@ class Dapp extends React.Component {
 		this.setState(prevState => {
 			const { ui } = prevState;
 			if (index === -1) {
-				ui.activeRoute = DAPP_ROUTES[0]
+				ui.activeRoute = DAPP_ROUTES[0];
+				ui.activeRouteIndex = 0;
 			} else {
 				ui.activeRoute = DAPP_ROUTES[index];
+				ui.activeRouteIndex = index;
 			}
 			return { ui }
 		});
@@ -325,28 +329,29 @@ class Dapp extends React.Component {
 											<Navigation routes={DAPP_ROUTES} />
 										</Sidebar>
 										<StyledPage>
-											<StyledPageInner>
-												<Topbar routes={DAPP_ROUTES} />
-												<StyledContent>
-													<Switch>
-														{DAPP_ROUTES.map((route, i) => {
-															const { label, path, component } = route;
-															if (i === 0) return;
-															return (
-																<Route
-																	key={label}
-																	path={path}
-																>
-																	{component}
-																</Route>
-															);
-														})}
-														<Route path={DAPP_ROUTES[0].path}>
-															{DAPP_ROUTES[0].component}
-														</Route>
-													</Switch>
-												</StyledContent>
-											</StyledPageInner>
+												<StyledPageInner>
+													<Topbar routes={DAPP_ROUTES} />
+													<StyledContent>
+														<Switch>
+															{DAPP_ROUTES.map((route, i) => {
+																const { label, path, component } = route;
+																if (i === 0) return;
+																return (
+																	<Route
+																		key={label}
+																		path={path}
+																	>
+																		{component}
+																	</Route>
+																);
+															})}
+															<Route path={DAPP_ROUTES[0].path}>
+																{DAPP_ROUTES[0].component}
+															</Route>
+														</Switch>
+													</StyledContent>
+												</StyledPageInner>
+											
 										</StyledPage>
 									</Router>
 								</StyledDapp>
@@ -362,17 +367,3 @@ class Dapp extends React.Component {
 }
 
 export default Dapp;
-
-/*
-{subroutes && subroutes.length !== 0 && subroutes.map((subroute, i) => {
-																		return (
-																			<Route
-																				key={subroute.label}
-																				path={subroute.path}
-																			>
-																				{subroute.component}
-																			</Route>
-																		)
-																	})}
-																	{subroutes && subroutes.length > 0 && component}
-																	*/

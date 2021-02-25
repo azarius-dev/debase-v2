@@ -16,7 +16,7 @@ export const StyledButton = styled.div`
     padding: 0 18px;
 `;
 
-export const StyledButtonIcon = styled.div`
+export const StyledIcon = styled.div`
     position: relative;
     display: flex;
     align-items: center;
@@ -31,7 +31,7 @@ export const StyledButtonIcon = styled.div`
     }
 `;
 
-export const StyledButtonText = styled.div`
+export const StyledText = styled.div`
     position: relative;
     padding: 0;
     margin: 0;
@@ -45,7 +45,7 @@ export const StyledButtonText = styled.div`
     user-select: none;
 `;
 
-export const StyledButtonBorder = styled.div`
+export const StyledBorder = styled.div`
     box-sizing: border-box;
     position: absolute;
     top: 0;
@@ -57,4 +57,5 @@ export const StyledButtonBorder = styled.div`
     box-shadow: ${props => props.theme.shadows.primary};
     user-select: none;
     pointer-events: none;
+    transition: .2s ease all;
 `;

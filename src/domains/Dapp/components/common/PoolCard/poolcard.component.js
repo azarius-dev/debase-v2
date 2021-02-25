@@ -27,6 +27,7 @@ const PoolCard = ({
                 <StyledHeader>
                     <Tooltip
                         message={isActive ? 'Active pool' : 'Inactive pool'}
+                        followCursor={true}
                     >
                         <StatusIndicator status={isActive ? 'active' : 'inactive'} />
                     </Tooltip>
@@ -38,7 +39,7 @@ const PoolCard = ({
                         <StyledInfoIcon>
                             <Tooltip
                                 message={info}
-                                followMouse={true}
+                                followCursor={true}
                             >
                                 <HelpIcon />
                             </Tooltip>
@@ -47,7 +48,7 @@ const PoolCard = ({
                     
                 </StyledHeader>
                 <Card
-                    isActive
+                    isActive={isActive}
                     gutter={30}
                 >
                     {children}
@@ -68,7 +69,7 @@ const PoolCard = ({
                             <Tooltip
                                 key={`poollink-${i}`}
                                 message={info}
-                                followMouse={true}
+                                followCursor={true}
                             >
                                 <IconButton
                                     as="a"

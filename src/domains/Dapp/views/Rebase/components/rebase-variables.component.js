@@ -6,8 +6,7 @@ import { formatEther } from 'ethers/lib/utils';
 import { Contract } from 'ethers';
 
 import { Button, List, Spinner } from '@core/components';
-import { LabeledCard, Grid } from '@dapp/components';
-//import { SnackbarContext } from '../../common';
+import { LabeledCard, Grid, SnackbarManagerContext } from '@dapp/components';
 import { StyledGridItem } from '../rebase.styles';
 import { CONTRACT_ADDRESS, ABI_ORCHESTRATOR, ABI_DEBASEPOLICY, ABI_UNI } from '@constants';
 import { fetcher, calcDateDifference } from '@utils';
@@ -18,7 +17,7 @@ const RebaseVariables = ()  => {
 	
 	const [ rebaseLoading, setRebaseLoading ] = useState(false);
 
-	//const { handleSnackbarQueue } = useContext(SnackbarContext);
+	const { handleSnackbar } = useContext(SnackbarManagerContext);
 
 	/* fetch rebase data */
 	const { data: priceTargetRate } = useSWR([CONTRACT_ADDRESS.debasePolicy, 'priceTargetRate'], {
@@ -134,17 +133,17 @@ const RebaseVariables = ()  => {
 		const orchestratorContract = new Contract(CONTRACT_ADDRESS.orchestrator, ABI_ORCHESTRATOR, library.getSigner());
 		try {
 			await orchestratorContract.rebase();
-			/*handleSnackbarQueue({
+			handleSnackbar({
 				id: 'fire-rebase-button',
 				message: 'Rebase successfully executed',
 				status: 'success'
-			});*/
+			});
 		} catch (error) {
-			/*handleSnackbarQueue({
+			handleSnackbar({
 				id: 'fire-rebase-button',
 				message: 'Rebase failed, please try again',
 				status: 'error'
-			});*/
+			});
 		}
 		setRebaseLoading(false);
 	};

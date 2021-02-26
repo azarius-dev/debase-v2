@@ -16,7 +16,8 @@ import {
 } from './layout';
 import {
     ModalManager,
-    SnackbarManager
+    SnackbarManager,
+    SnackbarManagerContext
 } from './managers';
 
 export {
@@ -36,6 +37,7 @@ export {
     Grid,
 
     ModalManager,
-    SnackbarManager
+    SnackbarManager,
+    SnackbarManagerContext
 
 };

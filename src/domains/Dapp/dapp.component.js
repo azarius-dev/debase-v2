@@ -16,7 +16,13 @@ import {
 } from '@api';
 import { parseFloatFixed, parseNumToUsFormat } from '@utils';
 import { ScrollArea } from '@core/components';
-import { Background, Sidebar, Navigation, Topbar } from '@dapp/components';
+import {
+	Background,
+	Sidebar,
+	Navigation,
+	Topbar,
+	SnackbarManager
+} from '@dapp/components';
 import {
 	UIContext,
 	WalletContext,
@@ -322,36 +328,38 @@ class Dapp extends React.Component {
 						<TokenHistoryContext.Provider value={{ tokenHistory }}>
 							<TreasuryDataContext.Provider value={{ treasuryData }}>
 
-								<Background />
-								<StyledDapp>
-									<Router>
-										<Sidebar>
-											<Navigation routes={DAPP_ROUTES} />
-										</Sidebar>
-										<StyledPage>
-												<StyledPageInner>
-													<Topbar routes={DAPP_ROUTES} />
-													<StyledContent>
-														<Switch>
-															{DAPP_ROUTES.map((route, i) => {
-																const { label, path, component } = route;
-																return (
-																	<Route
-																		exact={i === 0}
-																		key={label}
-																		path={path}
-																	>
-																		{component}
-																	</Route>
-																);
-															})}
-														</Switch>
-													</StyledContent>
-												</StyledPageInner>
-											
-										</StyledPage>
-									</Router>
-								</StyledDapp>
+								<SnackbarManager offset={40}>
+									<Background />
+									<StyledDapp>
+										<Router>
+											<Sidebar>
+												<Navigation routes={DAPP_ROUTES} />
+											</Sidebar>
+											<StyledPage>
+													<StyledPageInner>
+														<Topbar routes={DAPP_ROUTES} />
+														<StyledContent>
+															<Switch>
+																{DAPP_ROUTES.map((route, i) => {
+																	const { label, path, component } = route;
+																	return (
+																		<Route
+																			exact={i === 0}
+																			key={label}
+																			path={path}
+																		>
+																			{component}
+																		</Route>
+																	);
+																})}
+															</Switch>
+														</StyledContent>
+													</StyledPageInner>
+												
+											</StyledPage>
+										</Router>
+									</StyledDapp>
+								</SnackbarManager>
 
 							</TreasuryDataContext.Provider>
 						</TokenHistoryContext.Provider>

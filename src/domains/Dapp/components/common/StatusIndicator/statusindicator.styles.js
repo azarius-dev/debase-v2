@@ -4,15 +4,15 @@ import styled, { css } from 'styled-components';
 const statuses = {
     idle: css`
         background-color: ${ props => props.theme.colors.text };
-        box-shadow: ${ props => props.theme.shadows.textSmall };
+        box-shadow: ${ props => props.theme.shadows.base };
     `,
     active: css`
-        background-color: ${ props => props.theme.colors.success };
-        box-shadow: ${ props => props.theme.shadows.successSmall };
+        background-color: ${ props => props.theme.colors.successLight };
+        box-shadow: ${ props => props.theme.shadows.success };
     `,
     inactive: css`
-        background-color: ${ props => props.theme.colors.error };
-        box-shadow: ${ props => props.theme.shadows.errorSmall };
+        background-color: ${ props => props.theme.colors.errorLight };
+        box-shadow: ${ props => props.theme.shadows.error };
     `,
 };
 

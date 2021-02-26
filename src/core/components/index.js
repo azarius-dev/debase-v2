@@ -14,9 +14,9 @@ import {
 // FEEDBACK
 import {
     Banner,
-    Snackbar,
     Spinner,
     Tooltip,
+    Snackbar,
     Backdrop
 } from './feedback';
 // INPUT
@@ -63,9 +63,9 @@ export {
     Progress,
     // FEEDBACK
     Banner,
-    Snackbar,
     Spinner, 
     Tooltip,
+    Snackbar,
     Backdrop,
     // INPUT
     FormField,

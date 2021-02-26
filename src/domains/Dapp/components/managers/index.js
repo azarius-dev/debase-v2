@@ -1,6 +1,7 @@
 import ModalManager from './ModalManager';
-import SnackbarManager from './SnackbarManager';
+import { SnackbarManager, SnackbarManagerContext } from './SnackbarManager';
 export {
     ModalManager,
-    SnackbarManager
+    SnackbarManager,
+    SnackbarManagerContext
 };

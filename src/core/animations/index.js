@@ -1,2 +1,6 @@
 import rotate from './rotate';
-export { rotate };
+import fadeIn from './fadeIn';
+export {
+    rotate,
+    fadeIn
+};

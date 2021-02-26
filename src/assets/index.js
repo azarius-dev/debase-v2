@@ -29,7 +29,15 @@ import {
     MediumIcon,
     TelegramIcon,
     TwitterIcon,
-    DiscordIcon
+    DiscordIcon,
+    MoreHorizontalIcon,
+    StarIcon,
+    SearchIcon,
+    CodeIcon,
+    BugReportIcon,
+    QuestionAnswerIcon,
+    InsightsIcon,
+    RemoveIcon,
 } from './icons';
 export {
 
@@ -62,6 +70,14 @@ export {
     TouchAppIcon,
     CloseIcon,
     HelpIcon,
+    MoreHorizontalIcon,
+    StarIcon,
+    SearchIcon,
+    CodeIcon,
+    BugReportIcon,
+    QuestionAnswerIcon,
+    InsightsIcon,
+    RemoveIcon,
 
     // ICONS - fontawesome
     GithubIcon,

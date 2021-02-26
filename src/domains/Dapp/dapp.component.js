@@ -335,9 +335,9 @@ class Dapp extends React.Component {
 														<Switch>
 															{DAPP_ROUTES.map((route, i) => {
 																const { label, path, component } = route;
-																if (i === 0) return;
 																return (
 																	<Route
+																		exact={i === 0}
 																		key={label}
 																		path={path}
 																	>
@@ -345,9 +345,6 @@ class Dapp extends React.Component {
 																	</Route>
 																);
 															})}
-															<Route path={DAPP_ROUTES[0].path}>
-																{DAPP_ROUTES[0].component}
-															</Route>
 														</Switch>
 													</StyledContent>
 												</StyledPageInner>

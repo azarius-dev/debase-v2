@@ -1,14 +1,17 @@
 import {
     DashboardIcon,
     TuneIcon,
-    AccountTreeIcon
+    AccountTreeIcon,
+    InsightsIcon,
+    QuestionAnswerIcon
 } from '@assets';
 import {
     Dashboard,
     Pools,
     Rebase,
     Roadmap,
-    Faq
+    Faq,
+    Dev
 } from '@dapp/views';
 
 const DAPP_ROUTES = [
@@ -33,20 +36,20 @@ const DAPP_ROUTES = [
     {
         label: 'roadmap',
         path: '/roadmap',
-        icon: <TuneIcon />,
-        component: <Faq />
+        icon: <InsightsIcon />,
+        component: <Roadmap />
     },
     {
         label: 'faq',
         path: '/faq',
-        icon: <TuneIcon />,
+        icon: <QuestionAnswerIcon />,
         component: <Faq />
     },
     {
-        label: 'dev',
-        path: '/dev',
+        label: 'hidden-dev',
+        path: '/hidden-dev',
         icon: <TuneIcon />,
-        component: <Faq />
+        component: <Dev />
     }
 ];
 

@@ -14,7 +14,15 @@ import {
     AccountTreeIcon,
     TouchAppIcon,
     CloseIcon,
-    HelpIcon
+    HelpIcon,
+    MoreHorizontalIcon,
+    StarIcon,
+    SearchIcon,
+    CodeIcon,
+    BugReportIcon,
+    QuestionAnswerIcon,
+    InsightsIcon,
+    RemoveIcon
 } from './material-outline.icons';
 import { 
     GithubIcon,
@@ -42,6 +50,14 @@ export {
     TouchAppIcon,
     CloseIcon,
     HelpIcon,
+    MoreHorizontalIcon,
+    StarIcon,
+    SearchIcon,
+    CodeIcon,
+    BugReportIcon,
+    QuestionAnswerIcon,
+    InsightsIcon,
+    RemoveIcon,
 
     // fontawesome
     GithubIcon,

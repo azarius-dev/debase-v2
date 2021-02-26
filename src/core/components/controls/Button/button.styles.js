@@ -68,6 +68,7 @@ export const StyledButton = styled.button`
     border: 0;
     border-radius: 0;
     outline: none;
+    user-select: none;
     transition: .1s ease all;
 
     ${props => variants[props.variant] }

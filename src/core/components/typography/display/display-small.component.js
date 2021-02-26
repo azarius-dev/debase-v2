@@ -13,7 +13,7 @@ const DisplaySmall = styled(Display).attrs(props => ({
 `;
 
 DisplaySmall.defaultProps = {
-    color: 'text'
+    color: 'primary'
 };
 
 export default DisplaySmall;

@@ -17,7 +17,10 @@ const Rebase = ()  => {
 
     return (
         <Fragment>
-			<Section label="Variables">
+			<Section
+				label="Variables"
+				info="**update** info about rebase variables"
+			>
 				{renderVariables()}
 			</Section>
         </Fragment>

@@ -3,7 +3,8 @@ import { HelpIcon } from '@assets';
 import {
     StyledSection,
     StyledBody,
-    StyledHeader
+    StyledHeader,
+    StyledInfoIcon
 } from './section.styles';
 
 const Section = ({
@@ -22,8 +23,11 @@ const Section = ({
                     {info && info !== '' && (
                         <Tooltip
                             message={info}
+                            followCursor={true}
                         >
-                            <HelpIcon />
+                            <StyledInfoIcon>
+                                <HelpIcon />
+                            </StyledInfoIcon>
                         </Tooltip>
                     )}
                 </StyledHeader>

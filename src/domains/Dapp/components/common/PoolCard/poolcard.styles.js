@@ -25,4 +25,9 @@ export const StyledHeader = styled.div`
 export const StyledInfoIcon = styled.div`
     position: relative;
     margin-left: auto;
+
+    svg {
+        height: 18px;
+        width: 18px;
+    }
 `;

@@ -11,6 +11,7 @@ export const StyledSection = styled.div`
 export const StyledBody = styled.div`
     position: relative;
     display: flex;
+    flex-direction: column;
     padding: 40px;
     border-radius: 10px;
     border: 1px solid ${props => props.theme.colors.text}1A;
@@ -27,4 +28,11 @@ export const StyledHeader = styled.div`
     border-radius: 10px;
     border: 1px solid ${props => props.theme.colors.text}1A;
     background-color: ${props => props.theme.colors.background};
+`;
+
+export const StyledInfoIcon = styled.div`
+    svg {
+        height: 18px;
+        width: 18px;
+    }
 `;

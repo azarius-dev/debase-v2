@@ -17,7 +17,14 @@ const Navigation = ({ routes }) => {
     const navItemsRef = useRef([]);
 
     const renderActiveIndicator = () => {
-        if (navigationRef && navigationRef.current && navItemsRef && navItemsRef.current && navItemsRef.current.length !== 0) {
+        if (
+            navigationRef
+            && navigationRef.current
+            && navItemsRef
+            && navItemsRef.current
+            && navItemsRef.current.length !== 0
+            && navItemsRef.current.length > ui.activeRouteIndex
+        ) {
             const navigationRect = navigationRef.current.getBoundingClientRect();
             const activeButtonRect = navItemsRef.current[ui.activeRouteIndex].getBoundingClientRect();
             return <StyledBorder style={{ top: activeButtonRect.top - navigationRect.top }}/>
@@ -28,6 +35,7 @@ const Navigation = ({ routes }) => {
         <StyledNavigation ref={navigationRef}>
             {routes && routes.length !== 0 && routes.map((route, i) => {
                 const { label, path, icon } = route;
+                if (label.includes('hidden')) return;
                 return (
                     <StyledButton
                         ref={el => navItemsRef.current[i] = el}

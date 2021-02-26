@@ -53,11 +53,17 @@ const Pools = ()  => {
     return (
         <Switch>
             <Route exact path={path}>
-                <Section label="Incentivizers">
-                    {renderPools()}
-                </Section>
-                <Section label="Stabilizers">
+                <Section
+                        label="Stabilizers"
+                        info="**update** info about stabilizers"
+                >
                     <DisconnectedWalletCard />
+                </Section>
+                <Section
+                    label="Incentivizers"
+                    info="**update** info about incentivizers"
+                >
+                    {renderPools()}
                 </Section>
             </Route>
 

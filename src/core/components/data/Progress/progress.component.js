@@ -12,6 +12,7 @@ import {
 
 const Progress = ({ variant, currentValue, totalValue, label }) => {
 
+    // TODO: update style with state value
     //const [ percentage, setPercentage ] = useState(Number(currentValue) / Number(totalValue) * 100);
 
     return (
@@ -20,9 +21,8 @@ const Progress = ({ variant, currentValue, totalValue, label }) => {
                 <StyledBarInner style={{ width: `${Number(currentValue) / Number(totalValue) * 100}%` }} />
                 <StyledIndicator style={{ left: `${Number(currentValue) / Number(totalValue) * 100}%` }}>
                     <Tooltip
-                        message={currentValue}
-                        position="bottom-center"
-                        followMouse={true}
+                        message={`${currentValue} ${label}`}
+                        followCursor={true}
                         offset={15}
                     >
                         <StyledIndicatorInner />

@@ -36,8 +36,7 @@ const THEME_DARK = {
             inset 0 0 50px #4699E211
         `,
         secundaryText: `
-            0 0 10px #50FEF499,
-            0 0 50px #4699E211
+            0 0 10px #50FEF4
         `,
     }
 
